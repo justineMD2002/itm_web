@@ -33,9 +33,9 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">ITM</span>
+                <span className="text-white font-bold text-xl">IT Managers, Inc.</span>
               </div>
-              <span className="text-xl font-bold text-white">ITM Solutions</span>
+              <span className="text-xl font-bold text-white">IT Managers, Inc.</span>
             </div>
             <p className="text-gray-400 mb-6">
               Empowering businesses through innovative IT solutions. Together, we build the future.
@@ -109,7 +109,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <p className="text-sm text-gray-400">
-              © {currentYear} ITM Solutions. All rights reserved.
+              © {currentYear} IT Managers, Inc. All rights reserved.
             </p>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="hover:text-primary transition-colors">

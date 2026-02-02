@@ -7,7 +7,7 @@ export const contactInfo = {
     zip: '12345',
     country: 'United States',
     phone: '+1 (555) 123-4567',
-    email: 'info@itmsolutions.com',
+    email: 'info@itminc.com',
     hours: 'Monday - Friday: 9:00 AM - 6:00 PM EST'
   },
 
@@ -20,7 +20,7 @@ export const contactInfo = {
       state: 'NY',
       zip: '10013',
       phone: '+1 (555) 234-5678',
-      email: 'ny@itmsolutions.com'
+      email: 'ny@itminc.com'
     },
     {
       id: 2,
@@ -30,7 +30,7 @@ export const contactInfo = {
       state: 'CA',
       zip: '94103',
       phone: '+1 (555) 345-6789',
-      email: 'sf@itmsolutions.com'
+      email: 'sf@itminc.com'
     },
     {
       id: 3,
@@ -40,32 +40,32 @@ export const contactInfo = {
       state: 'England',
       zip: 'SW1A 2AA',
       phone: '+44 20 1234 5678',
-      email: 'london@itmsolutions.com'
+      email: 'london@itminc.com'
     }
   ],
 
   departments: [
     {
       name: 'Sales Inquiries',
-      email: 'sales@itmsolutions.com',
+      email: 'sales@itminc.com',
       phone: '+1 (555) 123-4567',
       description: 'For new projects and partnerships'
     },
     {
       name: 'Support',
-      email: 'support@itmsolutions.com',
+      email: 'support@itminc.com',
       phone: '+1 (555) 123-4568',
       description: 'Technical support for existing clients'
     },
     {
       name: 'Careers',
-      email: 'careers@itmsolutions.com',
+      email: 'careers@itminc.com',
       phone: '+1 (555) 123-4569',
       description: 'Join our team'
     },
     {
       name: 'Media & Press',
-      email: 'press@itmsolutions.com',
+      email: 'press@itminc.com',
       phone: '+1 (555) 123-4570',
       description: 'Press and media inquiries'
     }
@@ -74,27 +74,27 @@ export const contactInfo = {
   socialMedia: [
     {
       platform: 'LinkedIn',
-      url: 'https://linkedin.com/company/itm-solutions',
+      url: 'https://linkedin.com/company/itminc',
       icon: 'Linkedin'
     },
     {
       platform: 'Twitter',
-      url: 'https://twitter.com/itmsolutions',
+      url: 'https://twitter.com/itminc',
       icon: 'Twitter'
     },
     {
       platform: 'Facebook',
-      url: 'https://facebook.com/itmsolutions',
+      url: 'https://facebook.com/itminc',
       icon: 'Facebook'
     },
     {
       platform: 'Instagram',
-      url: 'https://instagram.com/itmsolutions',
+      url: 'https://instagram.com/itminc',
       icon: 'Instagram'
     },
     {
       platform: 'GitHub',
-      url: 'https://github.com/itmsolutions',
+      url: 'https://github.com/itminc',
       icon: 'Github'
     }
   ],

@@ -16,7 +16,7 @@ const About = () => {
           >
             <h1 className="heading-xl mb-4">About Us</h1>
             <p className="text-xl opacity-90 max-w-2xl mx-auto">
-              Discover our story, values, and the people who make ITM Solutions
+              Discover our story, values, and the people who make IT Managers, Inc.
               a trusted partner for businesses worldwide.
             </p>
           </motion.div>

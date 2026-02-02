@@ -1,5 +1,5 @@
 export const companyInfo = {
-  name: 'ITM Solutions',
+  name: 'IT Managers, Inc.',
   tagline: 'The Power of Us',
   description: 'We believe that together, we achieve extraordinary things. Our diverse team of innovators, thinkers, and problem-solvers collaborates to deliver cutting-edge IT solutions that empower businesses worldwide.',
   founded: 2015,
