@@ -1,44 +1,114 @@
 import { motion } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useEffect, useRef } from 'react'
 import Button from '../common/Button'
 
 const HeroSection = () => {
-  const floatingShapes = [
-    { size: 60, delay: 0, duration: 6, x: '10%', y: '20%' },
-    { size: 80, delay: 1, duration: 8, x: '80%', y: '15%' },
-    { size: 50, delay: 2, duration: 7, x: '70%', y: '70%' },
-    { size: 70, delay: 0.5, duration: 9, x: '15%', y: '75%' },
-  ]
+  const canvasRef = useRef(null)
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    let animationFrameId
+    let particles = []
+
+    // Set canvas size
+    const resizeCanvas = () => {
+      canvas.width = canvas.offsetWidth
+      canvas.height = canvas.offsetHeight
+    }
+    resizeCanvas()
+    window.addEventListener('resize', resizeCanvas)
+
+    // Particle class
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width
+        this.y = Math.random() * canvas.height
+        this.vx = (Math.random() - 0.5) * 0.5
+        this.vy = (Math.random() - 0.5) * 0.5
+        this.radius = 2
+      }
+
+      update() {
+        this.x += this.vx
+        this.y += this.vy
+
+        // Bounce off edges
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1
+
+        // Keep within bounds
+        this.x = Math.max(0, Math.min(canvas.width, this.x))
+        this.y = Math.max(0, Math.min(canvas.height, this.y))
+      }
+
+      draw() {
+        ctx.fillStyle = 'rgba(99, 102, 241, 0.6)' // primary color
+        ctx.beginPath()
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
+        ctx.fill()
+      }
+    }
+
+    // Create particles
+    const particleCount = Math.floor((canvas.width * canvas.height) / 15000)
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle())
+    }
+
+    // Animation loop
+    const animate = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+      // Update and draw particles
+      particles.forEach(particle => {
+        particle.update()
+        particle.draw()
+      })
+
+      // Draw connections
+      const maxDistance = 150
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x
+          const dy = particles[i].y - particles[j].y
+          const distance = Math.sqrt(dx * dx + dy * dy)
+
+          if (distance < maxDistance) {
+            const opacity = (1 - distance / maxDistance) * 0.3
+            ctx.strokeStyle = `rgba(99, 102, 241, ${opacity})`
+            ctx.lineWidth = 1
+            ctx.beginPath()
+            ctx.moveTo(particles[i].x, particles[i].y)
+            ctx.lineTo(particles[j].x, particles[j].y)
+            ctx.stroke()
+          }
+        }
+      }
+
+      animationFrameId = requestAnimationFrame(animate)
+    }
+
+    animate()
+
+    return () => {
+      window.removeEventListener('resize', resizeCanvas)
+      cancelAnimationFrame(animationFrameId)
+    }
+  }, [])
 
   return (
     <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-      {/* Animated Background Shapes */}
-      <div className="absolute inset-0 overflow-hidden">
-        {floatingShapes.map((shape, index) => (
-          <motion.div
-            key={index}
-            className="absolute rounded-full bg-primary/10"
-            style={{
-              width: shape.size,
-              height: shape.size,
-              left: shape.x,
-              top: shape.y,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              scale: [1, 1.1, 1],
-              opacity: [0.3, 0.6, 0.3],
-            }}
-            transition={{
-              duration: shape.duration,
-              repeat: Infinity,
-              delay: shape.delay,
-              ease: 'easeInOut',
-            }}
-          />
-        ))}
-      </div>
+      {/* Particle Network Background */}
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full"
+        style={{ opacity: 0.8 }}
+      />
 
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
