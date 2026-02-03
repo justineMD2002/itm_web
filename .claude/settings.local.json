@@ -5,7 +5,9 @@
       "Bash(npm install:*)",
       "Bash(npm run dev:*)",
       "Bash(git add:*)",
-      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd particle network background and Netlify configuration\n\n- Replace floating circles with particle network animation\n- Add canvas-based particle system with connections\n- Create netlify.toml for deployment configuration\n- Network represents teamwork and collaboration\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd particle network background and Netlify configuration\n\n- Replace floating circles with particle network animation\n- Add canvas-based particle system with connections\n- Create netlify.toml for deployment configuration\n- Network represents teamwork and collaboration\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
